@@ -134,6 +134,8 @@ export default function Bike() {
             onPointerUp={stop}
             onPointerLeave={stop}
             onPointerCancel={stop}
+            onContextMenu={(e) => e.preventDefault()}
+            style={{ touchAction: 'none' }}
             onKeyDown={(e) => { if (e.key === ' ' || e.key === 'Enter') start() }}
             onKeyUp={stop}
           >

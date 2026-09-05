@@ -93,7 +93,7 @@ export default function Compass() {
           ))}
           {POINTS.map((pt) => (
             <g key={pt.label} transform={`rotate(${pt.deg} 200 200)`}>
-              <text x="200" y="84" textAnchor="middle" fontFamily="Bowlby One SC, Impact, sans-serif" fontSize={pt.deg % 90 === 0 ? 15 : 10} fill={pt.label === 'CHURCH' ? '#e63946' : '#3a2113'} transform={`rotate(${-pt.deg} 200 84)`}>
+              <text x="200" y="92" textAnchor="middle" fontFamily="Bowlby One SC, Impact, sans-serif" fontSize={pt.deg % 90 === 0 ? 13 : 10} fill={pt.label === 'CHURCH' ? '#e63946' : '#3a2113'} transform={`rotate(${-pt.deg} 200 92)`}>
                 {pt.label === 'CHURCH' ? '✝' : ''} {pt.label}
               </text>
             </g>

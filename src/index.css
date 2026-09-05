@@ -56,7 +56,7 @@ body::after {
   mix-blend-mode: overlay;
 }
 a { color: var(--amber); }
-button { font-family: inherit; cursor: pointer; }
+button { font-family: inherit; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0.02em; line-height: 1; margin: 0; }
 p { margin: 0 0 1em; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
@@ -542,4 +542,76 @@ footer .coords { font-family: var(--led); font-size: 18px; color: var(--amber); 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .rain, .gull, .moth { display: none; }
+}
+
+/* ---------- Call bar (mobile, while on the phone) ---------- */
+.callbar {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  align-items: center; gap: 12px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  background: #1a0a0a; border-top: 3px solid var(--red);
+  font-family: var(--led); font-size: 20px; letter-spacing: 0.06em; color: var(--amber2);
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+}
+.callbar .txt { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.callbar .dot { width: 14px; height: 14px; border-radius: 50%; background: #4a1a1a; flex: none; }
+.callbar .dot.live { background: var(--red); box-shadow: 0 0 12px var(--red); }
+.callbar .dot.talking { animation: onairpulse 0.5s ease-in-out infinite alternate; }
+.hangup.small { font-size: 15px; padding: 8px 14px; box-shadow: 0 4px 0 #7a1420; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .callbar { display: flex; }
+  .studio { margin-top: 110px; }
+  .phone-wrap { order: -1; }
+  .phone { max-width: 250px; }
+  .phone .hint { font-size: 17px; }
+  .numplate { font-size: 24px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  body::after { display: none; }              /* grain is expensive on phones */
+  .rain i:nth-child(odd) { display: none; }   /* half the rain, same mood */
+  .wrap { width: min(1120px, 100% - 24px); }
+  section { padding: 44px 0; }
+  .panel { padding: 22px 16px; }
+  .lede { font-size: 16px; }
+  .eyebrow { font-size: 17px; letter-spacing: 0.1em; }
+  .sec-title { font-size: clamp(30px, 9vw, 64px); }
+  .ticker { font-size: 18px; }
+  .ticker .tag { font-size: 12px; padding: 5px 10px; }
+  .ticker .track { animation-duration: 90s; }
+  .hero { padding: 48px 0 20px; }
+  .hero h1 { font-size: clamp(64px, 19vw, 170px); text-shadow: 4px 4px 0 var(--red), 8px 8px 0 var(--blue); }
+  .tags span { font-size: 17px; padding: 3px 10px; }
+  .cabinet { padding: 16px; gap: 12px; border-radius: 18px; }
+  .station .call { font-size: 26px; }
+  .onair { font-size: 18px; padding: 6px 14px; }
+  .screen { font-size: 19px; min-height: 170px; padding: 10px 12px; }
+  .grille { grid-row: auto; min-height: 70px; }
+  .vu { width: 46%; }
+  .compass .needle { }
+  .heading { font-size: 22px; }
+  .specs, .specs tbody, .specs tr, .specs td { display: block; }
+  .specs td { border: 0; padding: 2px 0; }
+  .specs td:first-child { padding-top: 10px; font-size: 17px; }
+  .specs tr { border-bottom: 1px dashed rgba(255,255,255,0.25); padding-bottom: 8px; }
+  .speedo { font-size: 20px; }
+  .bignum .n { text-shadow: 5px 5px 0 var(--wood2); }
+  .confess-btn-wrap { align-items: center; text-align: center; }
+  .slot { min-height: 200px; }
+  .receipt { font-size: 18px; }
+  .scope-cols { gap: 16px; }
+  .scope-cols .lucky { font-size: 40px; }
+  /* departures board becomes cards */
+  .board, .board tbody, .board tr, .board td { display: block; }
+  .board thead { display: none; }
+  .board tr { background: #141414; border-top: 1px solid #333; border-bottom: 1px solid #000; margin-bottom: 8px; padding: 8px 10px; }
+  .board td { background: none; border: 0; padding: 0; width: auto; }
+  .board td:first-child { display: inline; width: auto; margin-right: 10px; }
+  .board td:nth-child(2) { display: inline; }
+  .board td.st { margin-top: 2px; font-size: 0.9em; }
+  footer { padding: 40px 0 120px; }
+  .steve-card h2 { font-size: 30px; }
 }

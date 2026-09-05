@@ -275,6 +275,14 @@ export default function Radio() {
         )}
         <div className="listeners">LISTENERS TONIGHT: 1 (IT&apos;S YOU)</div>
       </div>
+
+      {lifted && (
+        <div className="callbar" role="status">
+          <span className={`dot ${live ? 'live' : ''} ${live && isSpeaking ? 'talking' : ''}`} />
+          <span className="txt">{phase === 'live' ? (isSpeaking ? 'BILLY IS TALKING' : 'ON AIR · GO AHEAD') : phase === 'ringing' ? 'RINGING...' : phase === 'dialing' ? `DIALING ${dialed}` : 'MIC PERMISSION...'}</span>
+          <button className="hangup small" onClick={hangUp}>HANG UP</button>
+        </div>
+      )}
     </div>
   )
 }
