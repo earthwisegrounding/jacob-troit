@@ -532,6 +532,11 @@ section { position: relative; padding: 72px 0; }
 footer { padding: 60px 0 100px; text-align: center; font-size: 15px; color: var(--muted); }
 footer p { max-width: 70ch; margin: 0 auto 10px; }
 footer .coords { font-family: var(--led); font-size: 18px; color: var(--amber); }
+footer .dd-credit { margin-top: 28px; font-size: 14px; }
+footer .dd-credit a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+footer .dd-credit img { width: 53px; height: 40px; flex: none; display: block; }
+footer .dd-credit strong { color: var(--paper3); transition: color 0.2s; }
+footer .dd-credit a:hover, footer .dd-credit a:hover strong { color: var(--paper); }
 .counter {
   position: fixed; right: 14px; bottom: 14px; z-index: 45;
   font-family: var(--led); font-size: 16px; color: var(--phos); background: #061007;

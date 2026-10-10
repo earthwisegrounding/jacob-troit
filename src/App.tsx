@@ -84,6 +84,12 @@ export default function App() {
         <p style={{ fontFamily: 'var(--led)', fontSize: 18, color: 'var(--phos)' }}>
           ✝ GO IN PEACE. USE THE PEDALS. ✝
         </p>
+        <p className="dd-credit">
+          <a href="https://digitaldoorwaymarketing.com" target="_blank" rel="noopener">
+            <img src={`${import.meta.env.BASE_URL}digital-doorway.png`} width="128" height="96" alt="" loading="lazy" />
+            <span>Website by <strong>Digital Doorway Marketing</strong></span>
+          </a>
+        </p>
       </footer>
     </>
   )
